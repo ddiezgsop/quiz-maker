@@ -1,0 +1,9 @@
+<div *ngFor="let answer of question.mixed_answers">
+  <button
+    class="answerBtn"
+    (click)="setValue(answer)"
+    [ngClass]="{ active: selected === answer }"
+  >
+    {{ answer }}
+  </button>
+</div>

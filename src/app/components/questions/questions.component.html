@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <div *ngFor="let question of questions; index as i">
+    <p>{{ question.question }}</p>
+
+    <app-answer
+      [question]="question"
+      [form]="form"
+      [controlIndex]="i"
+    ></app-answer>
+  </div>
+
+  <div>
+    <button class="submitBtn" (click)="onSubmit()" [hidden]="!form.valid">
+      Save
+    </button>
+  </div>
+</form>

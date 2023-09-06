@@ -1,0 +1,29 @@
+<div>
+  <select
+    class="quizSelector"
+    name="category"
+    id="categorySelect"
+    [(ngModel)]="selectedCategory"
+  >
+    <option *ngFor="let category of categoryOptions" [value]="category.id">
+      {{ category.name }}
+    </option>
+  </select>
+  <select
+    class="quizSelector"
+    name="difficulty"
+    id="difficultySelect"
+    [(ngModel)]="selectedDifficulty"
+  >
+    <option *ngFor="let diffOpt of difficultyOptions" [value]="diffOpt">
+      {{ diffOpt }}
+    </option>
+  </select>
+  <button id="createBtn" [disabled]="disableSelect()" (click)="selectQuiz()">
+    Create QUIZ
+  </button>
+</div>
+
+<div *ngIf="questions.length">
+  <app-questions [questions]="questions"></app-questions>
+</div>

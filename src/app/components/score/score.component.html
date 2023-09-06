@@ -1,0 +1,29 @@
+<div *ngFor="let question of questions; index as i">
+  <p>{{ question.question }}</p>
+  <div class="answerLine">
+    <div *ngFor="let answerOption of question.mixed_answers">
+      <button
+        class="answerBtn"
+        [ngClass]="{
+          wrong: getAnswers(i) === answerOption && getAnswers(i) !== question.correct_answer,
+          active: question.correct_answer === answerOption,
+        }"
+      >
+        {{ answerOption }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<p
+  class="scoreMsg"
+  [ngClass]="{
+    fail: correctAnswers < 2,
+    almost: (correctAnswers >= 2 && correctAnswers <=3),
+    succeed: correctAnswers > 3,
+}"
+>
+  You SCORED {{ correctAnswers }} of {{ questions.length }}
+</p>
+
+<button class="goBackBtn" routerLink="quiz-maker">TRY AGAIN</button>

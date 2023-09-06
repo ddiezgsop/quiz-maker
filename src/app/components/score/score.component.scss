@@ -1,0 +1,20 @@
+.answerLine {
+  display: flex;
+}
+
+.scoreMsg {
+  font-size: 60px;
+
+  &.fail {
+    background-color: red;
+  }
+  &.almost {
+    background-color: yellow;
+  }
+  &.succeed {
+    background-color: green;
+  }
+}
+
+.goBackBtn {
+}
