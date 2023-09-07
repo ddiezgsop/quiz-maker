@@ -1,5 +1,5 @@
 <div *ngFor="let question of questions; index as i">
-  <p>{{ question.question }}</p>
+  <div class="questionLine" [innerHTML]="question.question"></div>
   <div class="answerLine">
     <div *ngFor="let answerOption of question.mixed_answers">
       <button
@@ -9,7 +9,7 @@
           active: question.correct_answer === answerOption,
         }"
       >
-        {{ answerOption }}
+        <div [innerHTML]="answerOption"></div>
       </button>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <form [formGroup]="form">
   <div *ngFor="let question of questions; index as i">
-    <p>{{ question.question }}</p>
+    <div class="questionLine" [innerHTML]="question.question"></div>
 
     <app-answer
       [question]="question"

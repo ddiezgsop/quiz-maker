@@ -23,7 +23,12 @@ export class ScoreComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.service.questions$.subscribe((res) => (this.questions = res));
+    this.service.questions$.subscribe((res) => {
+      this.questions = res;
+      if (!res.length) {
+        this.router.navigate(['quiz-maker']);
+      }
+    });
 
     this.questions.map((question, index) => {
       if (

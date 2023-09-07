@@ -4,6 +4,6 @@
     (click)="setValue(answer)"
     [ngClass]="{ active: selected === answer }"
   >
-    {{ answer }}
+    <div [innerHTML]="answer"></div>
   </button>
 </div>
